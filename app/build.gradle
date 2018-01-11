@@ -27,6 +27,12 @@ android {
     }
 }
 
+repositories {
+    flatDir {
+        dirs 'libs' //this way we can find the .aar file in libs folder
+    }
+}
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -35,5 +41,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile 'com.rmtheis:tess-two:8.0.0'//tesseract-android-tools
+
+    compile 'com.rmtheis:tess-two:8.0.0'            //tesseract-android-tools
+    compile 'com.cv4j:cv4j:0.1.1.4'                 //cv4j图像处理框架
+    compile(name: 'camera-library', ext: 'aar')     //google的CameraView
 }

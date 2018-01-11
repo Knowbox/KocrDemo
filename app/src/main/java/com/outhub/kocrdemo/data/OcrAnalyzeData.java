@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.googlecode.tesseract.android.TessBaseAPI;
+import com.outhub.kocrdemo.Utils.Cv4jUti;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -45,14 +46,10 @@ public class OcrAnalyzeData extends DataSource {
         copyTessDataFiles();
 
         String content = "";
-        /**
-         *
-         */
-
         TessBaseAPI tessBaseAPI = new TessBaseAPI();
         boolean suc = tessBaseAPI.init(mDataPath, lang);
         if (suc) {
-            tessBaseAPI.setImage(mBitmap);
+            tessBaseAPI.setImage(Cv4jUti.getCv4jBitmap(mBitmap));
             content = tessBaseAPI.getUTF8Text();
             tessBaseAPI.end();
         } else {

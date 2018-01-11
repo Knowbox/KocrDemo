@@ -8,5 +8,8 @@
 
     <string name="tv_identified_content">我是识别后的文本</string>
     <string name="btn_start_identify">开始识别</string>
+    <string name="camera_permission_not_granted">请开启相机权限再进行拍照</string>
+    <string name="camera_permission_confirmation">需要相机权限</string>
+    <string name="error_camera_permission">请求相机权限出错</string>
 
 </resources>

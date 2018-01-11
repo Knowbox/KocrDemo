@@ -2,6 +2,7 @@ package com.outhub.kocrdemo;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,10 +24,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.outhub.kocrdemo.Utils.CameraUtil;
+import com.outhub.kocrdemo.Utils.Cv4jUti;
 import com.outhub.kocrdemo.Utils.PermissionUtil;
+import com.outhub.kocrdemo.camera.EasyCamera;
 import com.outhub.kocrdemo.data.DataSource;
-import com.outhub.kocrdemo.loader.DataLoader;
 import com.outhub.kocrdemo.data.OcrAnalyzeData;
+import com.outhub.kocrdemo.loader.DataLoader;
 
 import java.io.File;
 
@@ -103,8 +106,12 @@ public class MainActivity extends AppCompatActivity
                     CameraUtil.cropPicture(this, mCachePicPath);
                     break;
                 case CameraUtil.REQUEST_CROP_PIC:
+                case EasyCamera.REQUEST_CAPTURE:
                     mIvPic.setImageDrawable(null);
-                    mIvPic.setImageURI(Uri.fromFile(new File(mCachePicPath)));
+                    Bitmap bitmap = BitmapFactory.decodeFile(mCachePicPath);
+//                    mIvPic.setImageBitmap(Cv4jUti.getCv4jBitmap(bitmap));
+                    mIvPic.setImageBitmap(bitmap);
+                    chineseOCR();
                     break;
             }
         }
@@ -148,10 +155,19 @@ public class MainActivity extends AppCompatActivity
                     chineseOCR();
                     break;
                 case R.id.iv_pic:
-                    CameraUtil.openCamera(MainActivity.this, mCachePicPath);
+                    //CameraUtil.openCamera(MainActivity.this, mCachePicPath);
+                    openCamera();
                     break;
             }
         }
+    }
+
+    private void openCamera() {
+        Uri destination = Uri.fromFile(new File(mCachePicPath));
+        EasyCamera.create(destination)
+                .withViewRatio(0.5f)        //取景框高宽比
+                .withMarginCameraEdge(50,50)
+                .start(this);
     }
 
     public void chineseOCR() {
