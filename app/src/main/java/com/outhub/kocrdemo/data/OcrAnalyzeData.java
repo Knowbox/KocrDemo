@@ -45,6 +45,10 @@ public class OcrAnalyzeData extends DataSource {
         copyTessDataFiles();
 
         String content = "";
+        /**
+         *
+         */
+
         TessBaseAPI tessBaseAPI = new TessBaseAPI();
         boolean suc = tessBaseAPI.init(mDataPath, lang);
         if (suc) {
