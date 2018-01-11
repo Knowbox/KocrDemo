@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">KOcrDemo</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="tv_identified_content">我是识别后的文本</string>
+    <string name="btn_start_identify">开始识别</string>
+
+</resources>
