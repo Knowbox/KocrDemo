@@ -32,10 +32,10 @@ import com.google.android.cameraview.AspectRatio;
 import com.google.android.cameraview.CameraView;
 import com.outhub.kocrdemo.R;
 import com.outhub.kocrdemo.camera.EasyCamera;
+
 import com.outhub.kocrdemo.camera.util.DisplayUtils;
 import com.outhub.kocrdemo.camera.util.FileUtils;
 import com.outhub.kocrdemo.camera.view.MaskView;
-
 /**
  * Description:
  */

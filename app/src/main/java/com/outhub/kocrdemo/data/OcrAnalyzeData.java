@@ -22,7 +22,8 @@ import java.io.OutputStream;
 public class OcrAnalyzeData extends DataSource {
     private static final String TAG = "TessTwoManager";
 
-    private static final String lang = "chi_sim";
+    private static final String lang = "eng";
+//    private static final String lang = "chi_sim";
     private static final String TESS_DATA = "tessdata";
 
     private Context mContext;
@@ -62,7 +63,7 @@ public class OcrAnalyzeData extends DataSource {
      * 为训练数据创建目录
      */
     private void createDirForTessData() {
-        File dir = new File(mDataPath + TESS_DATA);
+        File dir = new File(mDataPath + TESS_DATA + "/");
         if (!dir.exists()) {
             if (!dir.mkdirs()) {
                 Log.e(TAG, "ERROR: Creation of directory " + mDataPath + TESS_DATA + " failed, check does Android Manifest have permission to write to external storage.");

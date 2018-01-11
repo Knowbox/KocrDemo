@@ -163,7 +163,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void openCamera() {
-        Uri destination = Uri.fromFile(new File(mCachePicPath));
+        File file = new File(mCachePicPath);
+        if (!file.getParentFile().exists()) {
+            file.getParentFile().mkdirs();
+        }
+        Uri destination = Uri.fromFile(file);
         EasyCamera.create(destination)
                 .withViewRatio(0.5f)        //取景框高宽比
                 .withMarginCameraEdge(50,50)

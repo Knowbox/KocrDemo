@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 
 import com.outhub.kocrdemo.UI.CameraActivity;
 
+
 /**
  * Created by SummerRC on 2017/1/10.
  */
