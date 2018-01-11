@@ -22,8 +22,8 @@ import java.io.OutputStream;
 public class OcrAnalyzeData extends DataSource {
     private static final String TAG = "TessTwoManager";
 
-    private static final String lang = "eng";
-//    private static final String lang = "chi_sim";
+//    private static final String lang = "eng";
+    private static final String lang = "chi_sim";
     private static final String TESS_DATA = "tessdata";
 
     private Context mContext;
